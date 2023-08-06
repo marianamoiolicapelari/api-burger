@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import * as Yup from 'yup'
 import Product from '../models/Product'
 import Category from '../models/Category'
@@ -25,6 +26,7 @@ class ProductControler {
     }
 
     const { filename: path } = request.file
+  
     const { name, price, category_id, offer } = request.body
 
     const product = await Product.create({
@@ -96,7 +98,9 @@ class ProductControler {
     )
 
     return response.status(200).json()
-  } catch (err) {
+  }
+
+ catch (err) {
     console.log(err)
   }
   
